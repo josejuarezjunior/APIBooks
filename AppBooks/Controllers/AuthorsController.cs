@@ -9,17 +9,17 @@ namespace AppBooks.Controllers
     [Route("[controller]")]
     public class AuthorsController: ControllerBase
     {
-        private readonly IRepository<Author> _repository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public AuthorsController(IRepository<Author> repository)
+        public AuthorsController(IUnitOfWork unitOfWork)
         {
-            _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<Author>> Get()
         {
-            var authors = _repository.GetAll();
+            var authors = _unitOfWork.AuthorRepository.GetAll();
 
             if (authors is null)
             {
@@ -32,7 +32,7 @@ namespace AppBooks.Controllers
         [HttpGet("{id:int}", Name="GetAuthor")]
         public ActionResult<Author> Get(int id)
         {
-            var author = _repository.Get(a => a.AuthorId == id);
+            var author = _unitOfWork.AuthorRepository.Get(a => a.AuthorId == id);
 
             if(author is null) 
             { 
@@ -50,7 +50,8 @@ namespace AppBooks.Controllers
                 return BadRequest();
             }
 
-            var createdAuthor = _repository.Create(author);
+            var createdAuthor = _unitOfWork.AuthorRepository.Create(author);
+            _unitOfWork.Commit();
 
             return new CreatedAtRouteResult("GetAuthor", new { id = createdAuthor.AuthorId }, createdAuthor);
         }
@@ -63,7 +64,8 @@ namespace AppBooks.Controllers
                 return BadRequest();
             }
 
-            var updatedAuthor = _repository.Update(author);
+            var updatedAuthor = _unitOfWork.AuthorRepository.Update(author);
+            _unitOfWork.Commit();
 
             return Ok(updatedAuthor);
         }
@@ -71,7 +73,7 @@ namespace AppBooks.Controllers
         [HttpPatch("{id:int}")]
         public ActionResult Delete(int id)
         {
-            var author = _repository.Get(a => a.AuthorId == id);
+            var author = _unitOfWork.AuthorRepository.Get(a => a.AuthorId == id);
 
             if (author is null)
             {
@@ -79,7 +81,8 @@ namespace AppBooks.Controllers
             }
 
             author.IsDeleted = true;
-            var deletedAuthor = _repository.Delete(author);
+            var deletedAuthor = _unitOfWork.AuthorRepository.Delete(author);
+            _unitOfWork.Commit();
 
             return Ok(deletedAuthor);
         }

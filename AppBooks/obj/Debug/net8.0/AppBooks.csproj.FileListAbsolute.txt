@@ -134,3 +134,4 @@ C:\Users\josejuarez.junior\Documents\Personal\Developer\AppBooks\AppBooks\obj\De
 C:\Users\josejuarez.junior\Documents\Personal\Developer\AppBooks\AppBooks\obj\Debug\net8.0\AppBooks.pdb
 C:\Users\josejuarez.junior\Documents\Personal\Developer\AppBooks\AppBooks\obj\Debug\net8.0\AppBooks.genruntimeconfig.cache
 C:\Users\josejuarez.junior\Documents\Personal\Developer\AppBooks\AppBooks\obj\Debug\net8.0\ref\AppBooks.dll
+C:\Users\josejuarez.junior\Documents\Personal\Developer\AppBooks\AppBooks\obj\Debug\net8.0\AppBooks.sourcelink.json

@@ -9,23 +9,23 @@ namespace AppBooks.Controllers
     [Route("[controller]")]
     public class BooksController: ControllerBase
     {
-        private readonly IRepository<Book> _repository;
-        public BooksController(IRepository<Book> repository)
+        private readonly IUnitOfWork _unitOfWork;
+        public BooksController(IUnitOfWork unitOfWork)
         {
-            _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<Book>> GetAll()
         {
-            var books = _repository.GetAll();
+            var books = _unitOfWork.BookRepository.GetAll();
             return Ok(books);
         }
 
         [HttpGet("{id:int}", Name ="GetBook")]
         public ActionResult<Book> Get(int id)
         {
-            var book = _repository.Get(b => b.BookId == id);
+            var book = _unitOfWork.BookRepository.Get(b => b.BookId == id);
 
             if (book is null)
             {
@@ -43,7 +43,8 @@ namespace AppBooks.Controllers
                 return BadRequest();
             }
 
-            var createdBook = _repository.Create(book);
+            var createdBook = _unitOfWork.BookRepository.Create(book);
+            _unitOfWork.Commit();
 
             return new CreatedAtRouteResult("GetBook", new { id = createdBook.BookId }, createdBook);
         }
@@ -56,7 +57,8 @@ namespace AppBooks.Controllers
                 return BadRequest();
             }
 
-            var updatedBook = _repository.Update(book);
+            var updatedBook = _unitOfWork.BookRepository.Update(book);
+            _unitOfWork.Commit();
 
             return Ok(updatedBook);
         }
@@ -64,7 +66,7 @@ namespace AppBooks.Controllers
         [HttpPatch("{id:int}")]
         public ActionResult Delete(int id)
         {
-            var book = _repository.Get(b => b.BookId == id);
+            var book = _unitOfWork.BookRepository.Get(b => b.BookId == id);
 
             if(book is null)
             {
@@ -72,7 +74,8 @@ namespace AppBooks.Controllers
             }
 
             book.IsDeleted = true;
-            var deletedBook = _repository.Delete(book);
+            var deletedBook = _unitOfWork.BookRepository.Delete(book);
+            _unitOfWork.Commit();
 
             return Ok(deletedBook);
         }
