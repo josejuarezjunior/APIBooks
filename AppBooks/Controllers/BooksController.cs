@@ -35,6 +35,19 @@ namespace AppBooks.Controllers
             return Ok(book);
         }
 
+        [HttpGet("Author/{id}")]
+        public ActionResult<IEnumerable<Book>> GetBooksByAuthor(int id)
+        {
+            var books = _unitOfWork.BookRepository.GetBooksByAuthor(id);
+
+            if (books is null)
+            {
+                return NotFound();
+            }
+
+            return Ok(books);
+        }
+
         [HttpPost]
         public ActionResult<Book> Create(Book book)
         {
