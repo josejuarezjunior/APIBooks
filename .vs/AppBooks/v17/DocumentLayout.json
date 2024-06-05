@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\josejuarez.junior\\Documents\\Personal\\Developer\\AppBooks\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C1DF36C9-71F7-494C-852E-47C6FFC69EAC}|AppBooks\\AppBooks.csproj|c:\\users\\josejuarez.junior\\documents\\personal\\developer\\appbooks\\appbooks\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1DF36C9-71F7-494C-852E-47C6FFC69EAC}|AppBooks\\AppBooks.csproj|solutionrelative:appbooks\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C1DF36C9-71F7-494C-852E-47C6FFC69EAC}|AppBooks\\AppBooks.csproj|c:\\users\\josejuarez.junior\\documents\\personal\\developer\\appbooks\\appbooks\\repositories\\bookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1DF36C9-71F7-494C-852E-47C6FFC69EAC}|AppBooks\\AppBooks.csproj|solutionrelative:appbooks\\repositories\\bookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C1DF36C9-71F7-494C-852E-47C6FFC69EAC}|AppBooks\\AppBooks.csproj|c:\\users\\josejuarez.junior\\documents\\personal\\developer\\appbooks\\appbooks\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1DF36C9-71F7-494C-852E-47C6FFC69EAC}|AppBooks\\AppBooks.csproj|solutionrelative:appbooks\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1DF36C9-71F7-494C-852E-47C6FFC69EAC}|AppBooks\\AppBooks.csproj|c:\\users\\josejuarez.junior\\documents\\personal\\developer\\appbooks\\appbooks\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1DF36C9-71F7-494C-852E-47C6FFC69EAC}|AppBooks\\AppBooks.csproj|solutionrelative:appbooks\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C1DF36C9-71F7-494C-852E-47C6FFC69EAC}|AppBooks\\AppBooks.csproj|c:\\users\\josejuarez.junior\\documents\\personal\\developer\\appbooks\\appbooks\\controllers\\authorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -70,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
@@ -82,8 +82,7 @@
               "RelativeToolTip": "AppBooks\\Repositories\\IBookRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T20:43:09.873Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-05T20:43:09.873Z"
             },
             {
               "$type": "Document",
@@ -95,8 +94,7 @@
               "RelativeToolTip": "AppBooks\\Repositories\\IAuthorRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T20:42:42.892Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-05T20:42:42.892Z"
             },
             {
               "$type": "Document",
@@ -108,18 +106,17 @@
               "RelativeToolTip": "AppBooks\\Repositories\\AuthorRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T20:40:55.944Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-05T20:40:55.944Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "BookRepository.cs",
               "DocumentMoniker": "C:\\Users\\josejuarez.junior\\Documents\\Personal\\Developer\\AppBooks\\AppBooks\\Repositories\\BookRepository.cs",
               "RelativeDocumentMoniker": "AppBooks\\Repositories\\BookRepository.cs",
               "ToolTip": "C:\\Users\\josejuarez.junior\\Documents\\Personal\\Developer\\AppBooks\\AppBooks\\Repositories\\BookRepository.cs",
               "RelativeToolTip": "AppBooks\\Repositories\\BookRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-02T12:28:21.206Z",
               "EditorCaption": ""
@@ -146,8 +143,7 @@
               "RelativeToolTip": "AppBooks\\Repositories\\IUnitOfWork.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T13:23:45.155Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-01T13:23:45.155Z"
             },
             {
               "$type": "Document",
@@ -171,12 +167,11 @@
               "RelativeToolTip": "AppBooks\\Repositories\\IRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T14:35:31.34Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-30T14:35:31.34Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Repository.cs",
               "DocumentMoniker": "C:\\Users\\josejuarez.junior\\Documents\\Personal\\Developer\\AppBooks\\AppBooks\\Repositories\\Repository.cs",
               "RelativeDocumentMoniker": "AppBooks\\Repositories\\Repository.cs",
@@ -184,8 +179,7 @@
               "RelativeToolTip": "AppBooks\\Repositories\\Repository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T13:21:39.675Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-30T13:21:39.675Z"
             },
             {
               "$type": "Document",
@@ -197,18 +191,17 @@
               "RelativeToolTip": "AppBooks\\Controllers\\AuthorsController.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAYwCoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T00:36:46.885Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-28T00:36:46.885Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "BooksController.cs",
               "DocumentMoniker": "C:\\Users\\josejuarez.junior\\Documents\\Personal\\Developer\\AppBooks\\AppBooks\\Controllers\\BooksController.cs",
               "RelativeDocumentMoniker": "AppBooks\\Controllers\\BooksController.cs",
               "ToolTip": "C:\\Users\\josejuarez.junior\\Documents\\Personal\\Developer\\AppBooks\\AppBooks\\Controllers\\BooksController.cs",
               "RelativeToolTip": "AppBooks\\Controllers\\BooksController.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAA1wC8AAAAdAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwC8AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-28T00:29:23.826Z",
               "EditorCaption": ""
