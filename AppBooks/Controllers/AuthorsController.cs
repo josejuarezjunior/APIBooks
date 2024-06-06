@@ -1,4 +1,6 @@
 ﻿using AppBooks.Context;
+using AppBooks.DTOs;
+using AppBooks.DTOs.Mappings;
 using AppBooks.Models;
 using AppBooks.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +19,7 @@ namespace AppBooks.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Author>> Get()
+        public ActionResult<IEnumerable<AuthorDTO>> Get()
         {
             var authors = _unitOfWork.AuthorRepository.GetAll();
 
@@ -26,52 +28,70 @@ namespace AppBooks.Controllers
                 return NotFound();
             }
 
-            return Ok(authors);
+            // Using extension method with DTO
+            var authorsDTO = authors.ToAuthorDTOList();
+
+            return Ok(authorsDTO);
         }
 
         [HttpGet("{id:int}", Name="GetAuthor")]
-        public ActionResult<Author> Get(int id)
+        public ActionResult<AuthorDTO> Get(int id)
         {
             var author = _unitOfWork.AuthorRepository.Get(a => a.AuthorId == id);
 
             if(author is null) 
             { 
-                return NotFound();
+                return NotFound($"Author with id {id} not found.");
             }
 
-            return author;
+            // Using extension method with DTO
+            var authorDTO = author.ToAuthorDTO();
+
+            return authorDTO;
         }
 
         [HttpPost]
-        public ActionResult<Author> Create(Author author)
+        public ActionResult<AuthorDTO> Create(AuthorDTO authorDTO)
         {
-            if(author is null)
+            if(authorDTO is null)
             {
                 return BadRequest();
             }
+
+            // Using extension method with DTO
+            var author = authorDTO.ToAuthor();
 
             var createdAuthor = _unitOfWork.AuthorRepository.Create(author);
             _unitOfWork.Commit();
 
-            return new CreatedAtRouteResult("GetAuthor", new { id = createdAuthor.AuthorId }, createdAuthor);
+            // Using extension method with DTO
+            var createdAuthorDTO = author.ToAuthorDTO();
+
+            return new CreatedAtRouteResult("GetAuthor", new { id = createdAuthorDTO.AuthorId }, createdAuthorDTO);
         }
 
         [HttpPut]
-        public ActionResult<Author> Update(int id, Author author)
+        public ActionResult<AuthorDTO> Update(int id, AuthorDTO authorDTO)
         {
-            if(id != author.AuthorId)
+            if(id != authorDTO.AuthorId)
             {
                 return BadRequest();
             }
 
+            // Using extension method with DTO
+            var author = authorDTO.ToAuthor();
+
             var updatedAuthor = _unitOfWork.AuthorRepository.Update(author);
             _unitOfWork.Commit();
 
-            return Ok(updatedAuthor);
+            // Using extension method with DTO
+            var updatedAuthorDTO = updatedAuthor.ToAuthorDTO();
+
+            return Ok(updatedAuthorDTO);
         }
 
         [HttpPatch("{id:int}")]
-        public ActionResult Delete(int id)
+        public ActionResult<AuthorDTO> Delete(int id)
         {
             var author = _unitOfWork.AuthorRepository.Get(a => a.AuthorId == id);
 
@@ -84,7 +104,10 @@ namespace AppBooks.Controllers
             var deletedAuthor = _unitOfWork.AuthorRepository.Delete(author);
             _unitOfWork.Commit();
 
-            return Ok(deletedAuthor);
+            // Using extension method with DTO
+            var detetedAuhtorDTO = deletedAuthor.ToAuthorDTO();
+
+            return Ok(detetedAuhtorDTO);
         }
     }
 }
