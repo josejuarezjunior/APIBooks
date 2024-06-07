@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
-namespace AppBooks.Models
+namespace AppBooks.DTOs
 {
-    public class Book
+    public class BookDTO
     {
         public int BookId { get; set; }
         [Required]
@@ -15,8 +14,5 @@ namespace AppBooks.Models
         public bool IsDeleted { get; set; }
         [Required]
         public int AuthorId { get; set; }
-        
-        [JsonIgnore]
-        public Author? Author { get; set; }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using AppBooks.Context;
+using AppBooks.DTOs;
+using AppBooks.DTOs.Mappings;
 using AppBooks.Models;
 using AppBooks.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -16,14 +18,17 @@ namespace AppBooks.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Book>> GetAll()
+        public ActionResult<IEnumerable<BookDTO>> GetAll()
         {
             var books = _unitOfWork.BookRepository.GetAll();
-            return Ok(books);
+
+            var booksDTO = books.ToBookDTOList();
+
+            return Ok(booksDTO);
         }
 
         [HttpGet("{id:int}", Name ="GetBook")]
-        public ActionResult<Book> Get(int id)
+        public ActionResult<BookDTO> Get(int id)
         {
             var book = _unitOfWork.BookRepository.Get(b => b.BookId == id);
 
@@ -32,11 +37,13 @@ namespace AppBooks.Controllers
                 return NotFound();
             }
 
-            return Ok(book);
+            var bookDTO = book.ToBookDTO();
+
+            return Ok(bookDTO);
         }
 
         [HttpGet("Author/{id}")]
-        public ActionResult<IEnumerable<Book>> GetBooksByAuthor(int id)
+        public ActionResult<IEnumerable<BookDTO>> GetBooksByAuthor(int id)
         {
             var books = _unitOfWork.BookRepository.GetBooksByAuthor(id);
 
@@ -45,39 +52,49 @@ namespace AppBooks.Controllers
                 return NotFound();
             }
 
-            return Ok(books);
+            var booksDTO = books.ToBookDTOList();
+
+            return Ok(booksDTO);
         }
 
         [HttpPost]
-        public ActionResult<Book> Create(Book book)
+        public ActionResult<BookDTO> Create(BookDTO bookDTO)
         {
-            if (book is null)
+            if (bookDTO is null)
             {
                 return BadRequest();
             }
+
+            var book = bookDTO.ToBook();
 
             var createdBook = _unitOfWork.BookRepository.Create(book);
             _unitOfWork.Commit();
 
-            return new CreatedAtRouteResult("GetBook", new { id = createdBook.BookId }, createdBook);
+            var createdBookDTO = createdBook.ToBookDTO();
+
+            return new CreatedAtRouteResult("GetBook", new { id = createdBookDTO.BookId }, createdBookDTO);
         }
 
         [HttpPut]
-        public ActionResult<Book> Update(int id, Book book)
+        public ActionResult<BookDTO> Update(int id, BookDTO bookDTO)
         {
-            if (id != book.BookId)
+            if (id != bookDTO.BookId)
             {
                 return BadRequest();
             }
 
+            var book = bookDTO.ToBook();
+
             var updatedBook = _unitOfWork.BookRepository.Update(book);
             _unitOfWork.Commit();
 
-            return Ok(updatedBook);
+            var updatedBookDTO = updatedBook.ToBookDTO();
+
+            return Ok(updatedBookDTO);
         }
 
         [HttpPatch("{id:int}")]
-        public ActionResult Delete(int id)
+        public ActionResult<BookDTO> Delete(int id)
         {
             var book = _unitOfWork.BookRepository.Get(b => b.BookId == id);
 
@@ -90,7 +107,9 @@ namespace AppBooks.Controllers
             var deletedBook = _unitOfWork.BookRepository.Delete(book);
             _unitOfWork.Commit();
 
-            return Ok(deletedBook);
+            var deleteBookDTO = deletedBook.ToBookDTO();
+
+            return Ok(deleteBookDTO);
         }
     }
 }
